@@ -27,7 +27,7 @@ std::string getInput(void)
 
 int main(int ac, char **av)
 {
-    PhoneBook pb;
+    PhoneBook phonebook;
     std::string input;
 
 	(void)av;
@@ -37,9 +37,9 @@ int main(int ac, char **av)
     	{
     	    input = getInput();
     	    if (input == "ADD")
-    	        pb.add();
+    	        phonebook.add();
     	    else if (input == "SEARCH")
-    	        pb.search();
+    	        phonebook.search();
     	    else
     	    {
     	        std::cout << "EXIT" << std::endl;
