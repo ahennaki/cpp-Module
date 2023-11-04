@@ -2,6 +2,8 @@
 # define MAIN_HPP
 
 # include <string>
+# include <iostream>
+# include <iomanip>
 
 class Contact {
     public:
@@ -31,6 +33,7 @@ class PhoneBook {
 
     private:
         size_t count;
+        size_t index;
 		Contact contacts[8];
 };
 
