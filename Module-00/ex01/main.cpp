@@ -20,7 +20,7 @@ std::string getInput(void)
         if (!input.empty() && isInputValid(input))
             break;
         std::cin.clear();
-        std::cout << "Please insert a valid input" << std::endl;
+        std::cout << "input is not valid" << std::endl;
     }
     return input;
 }

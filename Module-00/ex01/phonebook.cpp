@@ -1,10 +1,10 @@
 #include "main.hpp"
 
-std::string getFormattedField(const std::string& field)
+std::string getFormattedField(const std::string& str)
 {
-	if (field.length() > 10)
-		return field.substr(0,9) + ".";
-	return field;
+	if (str.length() > 10)
+		return str.substr(0,9) + ".";
+	return str;
 }
 
 void display_contact_info(Contact contact)
@@ -12,7 +12,9 @@ void display_contact_info(Contact contact)
 	std::cout << std::endl;
 	std::cout << "First name: " << contact.getFirstName() << std::endl;
 	std::cout << "Last name: " << contact.getLastName() << std::endl;
+	std::cout << "Nickname: " << contact.getNickname() << std::endl;
 	std::cout << "Phone number: " << contact.getPhoneNumber() << std::endl;
+	std::cout << "Darkest secret: " << contact.getDarkestSecret() << std::endl;
 	std::cout << std::endl;
 }
 
@@ -31,6 +33,10 @@ void PhoneBook::add(void)
 	getline(std::cin, input);
 	new_contact.setLastName(input);
 
+	std::cout << "Nickname: ";
+	getline(std::cin, input);
+	new_contact.setNickname(input);
+
 	while (1)
 	{
 		std::cout << "Phone number : ";
@@ -44,6 +50,10 @@ void PhoneBook::add(void)
 		new_contact.setPhoneNumber(input);
 		break;
 	}
+
+	std::cout << "Darkest secret: ";
+	getline(std::cin, input);
+	new_contact.setDarkestSecret(input);
 
 	if (count > 7 || index > 7)
 	{
@@ -68,12 +78,13 @@ void PhoneBook::search(void)
 		std::cout << "There are no contacts to display!" << std::endl;
 		return ;
 	}
-	std::cout << "\n|     Index|First Name| Last Name|" << std::endl;
+	std::cout << "\n|  Index   |First Name|Last Name | Nickname |" << std::endl;
 	for (size_t i = 0; i < this->count; i += 1)
 	{
 		std::cout << "|" << std::right << std::setw(10) << i << "|";
 		std::cout << std::right << std::setw(10) << getFormattedField(contacts[i].getFirstName()) << "|" ;
 		std::cout << std::right << std::setw(10) << getFormattedField(contacts[i].getLastName()) << "|";
+		std::cout << std::right << std::setw(10) << getFormattedField(contacts[i].getNickname()) << "|";
 		std::cout << std::endl;
 	}
 
