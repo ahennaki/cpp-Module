@@ -44,7 +44,7 @@ void PhoneBook::add(void)
 		if (!input.empty() && input.find_first_not_of("0123456789") != std::string::npos) 
 		{
 			std::cin.clear();
-			std::cout << "Phone number must be fully composed by numbers" << std::endl;
+			std::cout << "Phone number must be composed by numbers" << std::endl;
 			continue;
 		}
 		new_contact.setPhoneNumber(input);
@@ -68,7 +68,7 @@ void PhoneBook::add(void)
 		this->index++;
 		this->contacts[index - 1] = new_contact;
 	}
-	std::cout << "Contact added successfully" << std::endl;
+	std::cout << "Contact added successfully:" << std::endl;
 }
 
 void PhoneBook::search(void)
@@ -81,10 +81,10 @@ void PhoneBook::search(void)
 	std::cout << "\n|  Index   |First Name|Last Name | Nickname |" << std::endl;
 	for (size_t i = 0; i < this->count; i += 1)
 	{
-		std::cout << "|" << std::right << std::setw(10) << i << "|";
-		std::cout << std::right << std::setw(10) << getFormattedField(contacts[i].getFirstName()) << "|" ;
-		std::cout << std::right << std::setw(10) << getFormattedField(contacts[i].getLastName()) << "|";
-		std::cout << std::right << std::setw(10) << getFormattedField(contacts[i].getNickname()) << "|";
+		std::cout << "|" << std::setw(10) << i << "|";
+		std::cout << std::setw(10) << getFormattedField(contacts[i].getFirstName()) << "|" ;
+		std::cout << std::setw(10) << getFormattedField(contacts[i].getLastName()) << "|";
+		std::cout << std::setw(10) << getFormattedField(contacts[i].getNickname()) << "|";
 		std::cout << std::endl;
 	}
 
@@ -105,7 +105,7 @@ void PhoneBook::search(void)
 		std::cout << "Invalid input" << std::endl;
 	}
 	if ((size_t)conv_index > (count - 1))
-		std::cout << "There's no contact with that index" << std::endl;
+		std::cout << "There's no contact with that index:" << std::endl;
 	else
 		display_contact_info(this->contacts[conv_index]);
 }

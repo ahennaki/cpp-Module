@@ -117,10 +117,10 @@ void Account::_displayTimestamp(void)
     t_stmp = localtime(&t_stmp_ptr);
     std::cout << "[";
     std::cout << t_stmp->tm_year + 1900;
-    std::cout << std::setw(2) << std::setfill('0') << t_stmp->tm_mon + 1;
-    std::cout << std::setw(2) << std::setfill('0') << t_stmp->tm_mday << "_";
-    std::cout << std::setw(2) << std::setfill('0') << t_stmp->tm_hour;
-    std::cout << std::setw(2) << std::setfill('0') << t_stmp->tm_min;
-    std::cout << std::setw(2) << std::setfill('0') << t_stmp->tm_sec;
+    std::cout << std::setw(2) << t_stmp->tm_mon + 1;
+    std::cout << std::setw(2) << t_stmp->tm_mday << "_";
+    std::cout << std::setw(2) << t_stmp->tm_hour;
+    std::cout << std::setw(2) << t_stmp->tm_min;
+    std::cout << std::setw(2) << t_stmp->tm_sec;
     std::cout << "] ";
 }
