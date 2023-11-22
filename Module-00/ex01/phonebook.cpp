@@ -1,5 +1,11 @@
 #include "main.hpp"
 
+PhoneBook::PhoneBook()
+{
+	count = 0;
+	index = 0;
+}
+
 std::string getFormattedField(const std::string& str)
 {
 	if (str.length() > 10)
@@ -18,32 +24,54 @@ void display_contact_info(Contact contact)
 	std::cout << std::endl;
 }
 
-PhoneBook::PhoneBook() : count(0) , index(0) {};
+static std::string getInput(std::string str)
+{
+	std::string	input;
+
+	while (1)
+	{
+		std::cout << str;
+		getline(std::cin, input);
+		if (std::cin.eof() == true)
+        {
+            std::cin.clear();
+            clearerr(stdin);
+			std::cout << std::endl;
+        }
+		if (input.empty())
+		{
+			std::cin.clear();
+			std::cout << "The input shouldn't be empty!!" << std::endl;
+			continue;
+		}
+		break;
+	}
+	return (input);
+}
 
 void PhoneBook::add(void)
 {
 	Contact	new_contact;
 	std::string	input;
 
-	std::cout << "First name: ";
-	getline(std::cin, input);
-	new_contact.setFirstName(input);
-
-	std::cout << "Last name: ";
-	getline(std::cin, input);
-	new_contact.setLastName(input);
-
-	std::cout << "Nickname: ";
-	getline(std::cin, input);
-	new_contact.setNickname(input);
+	new_contact.setFirstName(getInput("First name: "));
+	new_contact.setLastName(getInput("Last name: "));
+	new_contact.setNickname(getInput("Nickname: "));
 
 	while (1)
 	{
 		std::cout << "Phone number : ";
 		getline(std::cin, input);
-		if (!input.empty() && input.find_first_not_of("0123456789") != std::string::npos) 
+		if (std::cin.eof() == true)
+        {
+            std::cin.clear();
+            clearerr(stdin);
+			std::cout << std::endl;
+        }
+		if (input.empty() || (!input.empty() && input.find_first_not_of("0123456789") != std::string::npos)) 
 		{
 			std::cin.clear();
+			std::cout << "The input shouldn't be empty!!" << std::endl;
 			std::cout << "Phone number must be composed by numbers" << std::endl;
 			continue;
 		}
@@ -51,9 +79,7 @@ void PhoneBook::add(void)
 		break;
 	}
 
-	std::cout << "Darkest secret: ";
-	getline(std::cin, input);
-	new_contact.setDarkestSecret(input);
+	new_contact.setDarkestSecret(getInput("Darckest secret: "));
 
 	if (count > 7 || index > 7)
 	{
@@ -68,14 +94,14 @@ void PhoneBook::add(void)
 		this->index++;
 		this->contacts[index - 1] = new_contact;
 	}
-	std::cout << "Contact added successfully:" << std::endl;
+	std::cout << "	Contact added successfully:" << std::endl << std::endl;
 }
 
 void PhoneBook::search(void)
 {
 	if (count == 0)
 	{
-		std::cout << "There are no contacts to display!" << std::endl;
+		std::cout << "	There are no contacts to display!" << std::endl << std::endl;
 		return ;
 	}
 	std::cout << "\n|  Index   |First Name|Last Name | Nickname |" << std::endl;
@@ -95,17 +121,23 @@ void PhoneBook::search(void)
 	{
 		std::cout << "Please insert the index of the contact you'd like to display:";
 		getline(std::cin, index);
+		if (std::cin.eof() == true)
+        {
+            std::cin.clear();
+            clearerr(stdin);
+			std::cout << std::endl;
+        }
 		if (!index.empty() && index.find_first_not_of("0123456789") == std::string::npos)
 		{
-			conv_index = atoi(index.c_str());
+			conv_index = stoi(index);
 			if (conv_index <= 7)
 				break;
 		}
 		std::cin.clear();
-		std::cout << "Invalid input" << std::endl;
+		std::cout << "INVALID INPUT!!" << std::endl << std::endl;
 	}
 	if ((size_t)conv_index > (count - 1))
-		std::cout << "There's no contact with that index:" << std::endl;
+		std::cout << "There's no contact with that index:" << std::endl << std::endl;
 	else
 		display_contact_info(this->contacts[conv_index]);
 }

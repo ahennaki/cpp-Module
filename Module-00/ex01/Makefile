@@ -10,10 +10,10 @@ OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp phonebook.hpp contact.hpp
 	${CC} ${CFLAGS} -c $< -o $@
 
-$(NAME): $(OBJS) main.hpp
+$(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean:
