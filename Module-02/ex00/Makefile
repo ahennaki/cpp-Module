@@ -1,11 +1,11 @@
-NAME = zombie
+NAME = fixed
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = rm -rf
 
-SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRCS = main.cpp Fixed.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
@@ -13,7 +13,7 @@ all: $(NAME)
 %.o: %.cpp
 	${CC} ${CFLAGS} -c $< -o $@
 
-$(NAME): $(OBJS) Zombie.hpp
+$(NAME): $(OBJS) Fixed.hpp
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean:

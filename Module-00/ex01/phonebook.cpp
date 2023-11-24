@@ -104,7 +104,7 @@ void PhoneBook::search(void)
 		std::cout << "	There are no contacts to display!" << std::endl << std::endl;
 		return ;
 	}
-	std::cout << "\n|  Index   |First Name|Last Name | Nickname |" << std::endl;
+	std::cout << "\n|     Index|First Name| Last Name|  Nickname|" << std::endl;
 	for (size_t i = 0; i < this->count; i += 1)
 	{
 		std::cout << "|" << std::setw(10) << i << "|";
@@ -129,7 +129,7 @@ void PhoneBook::search(void)
         }
 		if (!index.empty() && index.find_first_not_of("0123456789") == std::string::npos)
 		{
-			conv_index = stoi(index);
+			conv_index = atoi(index.c_str());
 			if (conv_index <= 7)
 				break;
 		}
