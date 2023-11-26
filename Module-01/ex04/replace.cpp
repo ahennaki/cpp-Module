@@ -5,7 +5,7 @@ Replace::Replace(const std::string& filename, const std::string& s1, const std::
 
 Replace::~Replace() {}
 
-void Replace::replaceAndWriteToFile()
+bool Replace::replaceAndWriteToFile()
 {
 	std::string content;
 	std::ifstream file(filename.c_str());
@@ -14,6 +14,8 @@ void Replace::replaceAndWriteToFile()
 
 	buffer << file.rdbuf();
 	content = buffer.str();
+	if (content.empty())
+		return 0;
 	pos = content.find(s1);
 	while (pos != std::string::npos)
 	{
@@ -22,4 +24,5 @@ void Replace::replaceAndWriteToFile()
 	}
 	std::ofstream outFile(filename + ".replace");
 	outFile << content;
+	return 1;
 }

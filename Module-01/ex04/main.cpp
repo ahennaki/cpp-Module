@@ -12,12 +12,16 @@ int main(int ac, char** av)
 	std::string s2(av[3]);
 	if (s1.empty())
 	{
-	    std::cout << "Usage: " << av[0] << " <filename> <s1> <s2>" << std::endl;
-		std::cout << "<s1> should not be empty!!" << std::endl;
+	    std::cerr << "Usage: " << av[0] << " <filename> <s1> <s2>." << std::endl;
+		std::cerr << "<s1> should not be empty!!" << std::endl;
 	    return 0;
 	}
 	Replace replace(filename, s1, s2);
-	replace.replaceAndWriteToFile();
-	std::cout << " Check " << filename << ".replace" << std::endl;
+	if (!replace.replaceAndWriteToFile())
+	{
+		std::cerr << "Error in the file!!" << std::endl;
+		return 0;
+	}
+	std::cout << "Check " << filename << ".replace" << std::endl;
 	return 0;
 }
