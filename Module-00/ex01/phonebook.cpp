@@ -1,4 +1,4 @@
-#include "main.hpp"
+#include "phonebook.hpp"
 
 PhoneBook::PhoneBook()
 {
@@ -11,6 +11,14 @@ std::string getFormattedField(const std::string& str)
 	if (str.length() > 10)
 		return str.substr(0,9) + ".";
 	return str;
+}
+
+std::string padToWidth(const std::string& str, size_t width) {
+    if (str.length() >= width) {
+        return str;
+    } else {
+        return std::string(width - str.length(), ' ') + str;
+    }
 }
 
 void display_contact_info(Contact contact)
@@ -107,11 +115,12 @@ void PhoneBook::search(void)
 	std::cout << "\n|     Index|First Name| Last Name|  Nickname|" << std::endl;
 	for (size_t i = 0; i < this->count; i += 1)
 	{
-		std::cout << "|" << std::setw(10) << i << "|";
-		std::cout << std::setw(10) << getFormattedField(contacts[i].getFirstName()) << "|" ;
-		std::cout << std::setw(10) << getFormattedField(contacts[i].getLastName()) << "|";
-		std::cout << std::setw(10) << getFormattedField(contacts[i].getNickname()) << "|";
-		std::cout << std::endl;
+	    std::cout << "|"
+	              << padToWidth(std::to_string(i), 10) << "|"
+	              << padToWidth(getFormattedField(contacts[i].getFirstName()), 10) << "|"
+	              << padToWidth(getFormattedField(contacts[i].getLastName()), 10) << "|"
+	              << padToWidth(getFormattedField(contacts[i].getNickname()), 10) << "|"
+	              << std::endl;
 	}
 
 	std::string index;
