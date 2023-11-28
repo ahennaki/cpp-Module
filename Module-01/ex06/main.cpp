@@ -5,8 +5,7 @@ bool isInputValid(const std::string& input)
 	if (input != "DEBUG" && input != "INFO"
 	&& input != "WARNING" && input != "ERROR")
 	{
-		std::cout << "Please insert a valid level for Harl!!" << std::endl;
-		std::cout << "DEBUG || INFO || WARNING || ERROR." << std::endl;
+		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 		return 0;
 	}
 	return 1;
