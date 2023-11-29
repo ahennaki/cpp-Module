@@ -29,6 +29,8 @@ Fixed &Fixed::operator=(const Fixed& obj)
 	return (*this);
 }
 
+// ostream 
+
 Fixed::~Fixed()
 {
 	std::cout << "Destructor called" << std::endl;

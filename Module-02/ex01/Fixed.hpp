@@ -2,6 +2,7 @@
 # define FIXED_HPP
 
 #include <iostream>
+#include <cmath>
 
 class Fixed
 {
@@ -12,7 +13,6 @@ class Fixed
 		Fixed();
 		Fixed(const int& val);
 		Fixed(const float& val);
-		Fixed();
 		Fixed(const Fixed &obj);
 		Fixed &operator=(const Fixed &object);
 		~Fixed();
