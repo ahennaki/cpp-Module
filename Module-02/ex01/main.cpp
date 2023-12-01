@@ -1,6 +1,9 @@
 #include "Fixed.hpp"
 
 int main( void ) {
+	// Fixed a;
+
+	// std::cout << a << std::endl;
 	Fixed a;
 	Fixed const b( 10 );
 	Fixed const c( 42.42f );

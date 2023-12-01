@@ -33,22 +33,15 @@ void Harl::error(void)
 
 void Harl::complain(std::string level)
 {
-	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-
-	size_t i = 0;
-	while (i < 4 && levels[i].compare(level))
-		i++;
-	switch (i)
+	switch (level[0])
 	{
-		case 0:
-			this->debug();
-		case 1:
-			this->info();
-		case 2:
-			this->warning();
-		case 3:
-			this->error();
-		default:
-			break;
+		case 'D':
+			debug();
+		case 'I':
+			info();
+		case 'W':
+			warning();
+		case 'E':
+			error();
 	}
 }

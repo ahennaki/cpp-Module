@@ -2,7 +2,7 @@
 
 int main()
 {
-    int hordeSize = 5;
+    int hordeSize = 0;
     Zombie* myHorde = zombieHorde(hordeSize, "Horde Zombie");
 
     for (int i = 0; i < hordeSize; ++i)

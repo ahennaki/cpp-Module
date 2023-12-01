@@ -17,6 +17,4 @@ class Harl
 		void complain(std::string level);
 };
 
-typedef void (Harl::*ptr_ft)(void);
-
 #endif

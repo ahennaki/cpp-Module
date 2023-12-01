@@ -4,6 +4,8 @@
 
 int main()
 {
+	// HumanB a("bob");
+	// a.attack();
 	{
 		Weapon club = Weapon("crude spiked club");
 		HumanA bob("Bob", club);
