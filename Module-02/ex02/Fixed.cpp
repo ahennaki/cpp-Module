@@ -114,16 +114,14 @@ bool Fixed::operator!=(const Fixed &obj) const
 
 Fixed Fixed::operator++(int)
 {
-	Fixed old;
-	old = *this;
+	Fixed old(*this);
 	this->value++;
 	return(old);
 }
 
 Fixed Fixed::operator--(int)
 {
-	Fixed old;
-	old = *this;
+	Fixed old(*this);
 	this->value--;
 	return(old);
 }
