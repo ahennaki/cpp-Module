@@ -46,7 +46,7 @@ FragTrap::~FragTrap()
 	std::cout << "Destructor FragTrap called." << std::endl;
 }
 
-void FragTrap::highFivesGuys(void)
+void FragTrap::highFivesGuys()
 {
-	std::cout << "FragTrap is now in Gate keeper mode." << std::endl;//to implemente
+    std::cout << "FragTrap " << name << " requests a high five from the guys! Anyone up for it?" << std::endl;
 }

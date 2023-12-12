@@ -48,5 +48,5 @@ ScavTrap::~ScavTrap()
 
 void ScavTrap::guardGate()
 {
-	std::cout << "ScavTrap is now in Gate keeper mode." << std::endl;//to implemente
+    std::cout << "ScavTrap " << name << " is now in Gatekeeper mode. Guarding the gate with style!" << std::endl;
 }
