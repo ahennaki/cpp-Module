@@ -11,6 +11,13 @@ int main() {
     clap3 = clap1;
 
     clap1.attack("Me");
+    clap1.attack("Me");
+    clap1.attack("Me");
+    clap1.attack("Me");
+    clap1.attack("Me");
+    clap1.attack("Me");
+    clap1.attack("Me");
+    clap1.takeDamage(5);
     clap1.takeDamage(5);
     clap1.beRepaired(3);
 

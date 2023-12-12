@@ -15,8 +15,16 @@ int main()
     clap1.beRepaired(3);
 
     ScavTrap scav("SCAV");
+	scav.attack("scavt");
+	scav.takeDamage(5);
+	scav.beRepaired(3);
     scav.guardGate();
-	scav.attack("Me");
+
+	FragTrap frag("FRAG");
+	frag.attack("fragt");
+	frag.takeDamage(5);
+	frag.beRepaired(3);
+	frag.highFivesGuys();
 
     return 0;
 }
