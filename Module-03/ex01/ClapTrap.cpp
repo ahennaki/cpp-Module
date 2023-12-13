@@ -15,6 +15,7 @@ ClapTrap::ClapTrap(std::string name)
 	hitPoint = 10;
 	enrgPoint = 10;
 	atkDamage = 10;
+	std::cout << "Costructor ClapTrap called." << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& obj)
@@ -62,10 +63,10 @@ void    ClapTrap::takeDamage(unsigned int amount)
 {
     if (hitPoint <= amount)
     {
-        std::cout << "ClapTrap " << name << " can't take damage!" << std::endl;
+        std::cout << name << " can't take damage!" << std::endl;
         return;
     }
-    std::cout << "ClapTrap " << name << " takes " << amount << " damage!" << std::endl;
+    std::cout << name << " takes " << amount << " damage!" << std::endl;
     hitPoint -= amount;
 }
 
@@ -73,10 +74,10 @@ void    ClapTrap::beRepaired(unsigned int amount)
 {
     if (enrgPoint <= amount)
     {
-        std::cout << "ClapTrap " << name << " is out of energy!" << std::endl;
+        std::cout << name << " is out of energy!" << std::endl;
         return;
     }
-    std::cout << "ClapTrap " << name << " repairs itself for " << amount << " hit points!" << std::endl;
+    std::cout << name << " repairs itself for " << amount << " hit points!" << std::endl;
     enrgPoint--;
     hitPoint += amount;
 }

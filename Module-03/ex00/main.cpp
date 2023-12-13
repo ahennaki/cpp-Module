@@ -1,5 +1,13 @@
 #include "ClapTrap.hpp"
 
+/*
+Types of Inheritance:
+
+Single Inheritance: A class is derived from only one base class.
+Multiple Inheritance: A class is derived from more than one base class.
+Multilevel Inheritance: A class is derived from another derived class.
+*/
+
 int main() {
 
     ClapTrap clap1("CLAP");
@@ -10,16 +18,10 @@ int main() {
 
     clap3 = clap1;
 
-    clap1.attack("Me");
-    clap1.attack("Me");
-    clap1.attack("Me");
-    clap1.attack("Me");
-    clap1.attack("Me");
-    clap1.attack("Me");
-    clap1.attack("Me");
-    clap1.takeDamage(5);
-    clap1.takeDamage(5);
-    clap1.beRepaired(3);
+    clap3.attack("Me");
+    clap3.takeDamage(5);
+    clap3.takeDamage(5);
+    clap3.beRepaired(3);
 
     return 0;
 }

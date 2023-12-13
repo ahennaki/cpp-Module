@@ -27,7 +27,10 @@ ClapTrap::ClapTrap(const ClapTrap& obj)
 	std::cout << "Copy constructor called." << std::endl;
 }
 
-ClapTrap::~ClapTrap(){}
+ClapTrap::~ClapTrap()
+{
+	std::cout << "Destructor called." << std::endl;
+}
 
 ClapTrap &ClapTrap::operator=(const ClapTrap& obj)
 {
