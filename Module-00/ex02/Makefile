@@ -10,10 +10,10 @@ OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp Account.hpp
 	${CC} ${CFLAGS} -c $< -o $@
 
-$(NAME): $(OBJS) Account.hpp
+$(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean:

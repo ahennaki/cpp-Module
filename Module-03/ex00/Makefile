@@ -10,10 +10,10 @@ OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp ClapTrap.hpp
 	${CC} ${CFLAGS} -c $< -o $@
 
-$(NAME): $(OBJS) ClapTrap.hpp
+$(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean:
