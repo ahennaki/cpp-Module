@@ -7,24 +7,18 @@
 int main()
 {
 	// atexit(f);
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	Animal* a = new Dog();
+	Animal* b = new Cat();
 	
-	std::cout << std::endl;
-	const Dog *dog = new Dog();
-	const Cat *cat = new Cat();
+	delete a;//should not create a leak
+	delete b;
 
 	std::cout << std::endl;
-	std::cout << cat->getType() << std::endl; 
-	std::cout << dog->getType() << std::endl; 
 
-	std::cout << std::endl;
-	delete j;//should not create a leak
-	delete i;
+	Animal* animals[4] = { new Dog(), new Dog(), new Cat(), new Cat() };
 
-	std::cout << std::endl;
-	delete dog;
-	delete cat;
+	for (size_t i = 0; i < 4; i++)
+		delete animals[i];
 
 	return 0;
 }

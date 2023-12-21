@@ -12,16 +12,16 @@ int main() {
 
     ClapTrap clap1("CLAP");
 
-    ClapTrap clap2(clap1);
+    ClapTrap clap2 = clap1;
 
     ClapTrap clap3;
 
     clap3 = clap1;
 
-    clap3.attack("Me");
-    clap3.takeDamage(5);
-    clap3.takeDamage(5);
-    clap3.beRepaired(3);
+    (clap3).attack("Me");
+    (clap3).takeDamage(5);
+    (clap3).takeDamage(5);
+    (clap3).beRepaired(3);
 
     return 0;
 }

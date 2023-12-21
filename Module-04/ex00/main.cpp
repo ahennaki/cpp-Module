@@ -2,8 +2,11 @@
 #include "Cat.hpp"
 #include "WrongCat.hpp"
 
+// void f(){system("leaks Animal");}
+
 int main()
 {
+	// atexit(f);
 	const Animal* meta = new Animal();
 	const Animal* j = new Dog("dog");
 	const Animal* i = new Cat("cat");
@@ -19,9 +22,9 @@ int main()
 	delete i;
 	delete j;
 
-	std::cout << "----------wronganimal---------" << std::endl;
-	const WrongAnimal *wrongAnimal = new WrongAnimal();
-	const WrongCat *wrongCat = new WrongCat();
+	std::cout << "----------wrongAnimal---------" << std::endl;
+	WrongAnimal *wrongAnimal = new WrongAnimal();
+	WrongAnimal *wrongCat = new WrongCat();
 
 	wrongAnimal->makeSound();
 	wrongCat->makeSound();
