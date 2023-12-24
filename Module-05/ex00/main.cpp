@@ -3,15 +3,15 @@
 int main( void )
 {
     try {
-        Bureaucrat bureaucrat("high", 1);
+        Bureaucrat bureaucrat("high", 3);
         std::cout << bureaucrat << std::endl;
 
-        // bureaucrat.increment();
-        bureaucrat.decrement();
+        bureaucrat.increment();
+        // bureaucrat.decrement();
         
         std::cout << bureaucrat << std::endl;
     }
-    catch (Bureaucrat::GradeTooHighException &e)
+    catch (std::exception &e)
     {
         std::cout << e.what() << std::endl;
     }
@@ -25,7 +25,7 @@ int main( void )
         
         std::cout << bureaucrat << std::endl;
     }
-    catch (Bureaucrat::GradeTooLowException &e)
+    catch (std::exception &e)
     {
         std::cout << e.what() << std::endl;
     }

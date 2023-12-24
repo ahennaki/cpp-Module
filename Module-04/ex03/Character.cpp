@@ -70,7 +70,10 @@ void Character::equip(AMateria* m)
 void Character::unequip(int idx)
 {
 	if (idx >= 0 && idx < 4 && this->slots[idx])
+	{
+		delete this->slots[idx];
 		this->slots[idx] = 0;
+	}
 	// std::cout << "unequip() called." << std::endl;
 }
 
