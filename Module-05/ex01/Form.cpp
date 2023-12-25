@@ -2,11 +2,11 @@
 
 Form::Form() : name("") , signedIn(0) , gradeSgn(1) , gradeEx(1) {}
 
-Form::Form(std::string name, bool signedIn, int gradeSgn, int gradeEx) : name(name) , signedIn(signedIn) , gradeSgn(gradeSgn) , gradeEx(gradeEx)
+Form::Form(std::string name, int gradeSgn, int gradeEx) : name(name) , signedIn(0) , gradeSgn(gradeSgn) , gradeEx(gradeEx)
 {
-    if (gradeSgn < 1)
+    if (gradeSgn < 1 || gradeEx < 1)
         throw Form::GradeTooHighException();
-    if (gradeSgn > 150)
+    if (gradeSgn > 150 || gradeEx > 150)
         throw Form::GradeTooLowException();
 }
 
@@ -15,12 +15,7 @@ Form::Form(const Form& obj) : name(obj.name) , signedIn(obj.signedIn) , gradeSgn
 Form& Form::operator=(const Form& obj)
 {
     if (this != &obj)
-    {
-        const_cast<std::string&>(name) = obj.name;
         signedIn = obj.signedIn;
-        const_cast<int&>(gradeSgn) = obj.gradeSgn;
-        const_cast<int&>(gradeEx) = obj.gradeEx;
-    }
     return (*this);
 }
 

@@ -51,14 +51,14 @@ std::ostream& operator<<(std::ostream& out, const Bureaucrat& obj)
     return out;
 }
 
-void Bureaucrat::signForm(Form& form)
+void Bureaucrat::signForm(AForm& form)
 {
     try
     {
         form.beSigned(*this);
         std::cout << name << " signed " << form.getName() << std::endl;
     }
-    catch (Form::GradeTooLowException &e)
+    catch (AForm::GradeTooLowException &e)
     {
         std::cout << name << " coulnd't sign " << form.getName() << " because " << e.what() << std::endl;
     }

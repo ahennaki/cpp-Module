@@ -10,18 +10,12 @@ Bureaucrat::Bureaucrat(std::string name, int grade) :  name(name) , grade(grade)
         throw Bureaucrat::GradeTooLowException();
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& obj) : name(obj.name)
-{
-    grade = obj.grade;
-}
+Bureaucrat::Bureaucrat(const Bureaucrat& obj) : name(obj.name) , grade(obj.grade) {}
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj)
 {
     if (this != &obj)
-    {
         grade = obj.grade;
-        const_cast<std::string&>(name) = obj.name;
-    }
     return *this;
 }
 

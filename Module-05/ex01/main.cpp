@@ -3,16 +3,19 @@
 
 int main( void )
 {
+    try
+    {
+        Bureaucrat brc("brc",1);
+        Form form("form", 10, 10);
 
-    try {
-        Bureaucrat bureaucrat("ash",11);
-        Form form("formName", 10);
-
-        bureaucrat.signForm(form);
+        brc.signForm(form);
 
         std::cout << form << std::endl;
-    } catch (std::exception &e) {
+    }
+    catch (std::exception &e)
+    {
         std::cout << e.what() << std::endl;
     }
-    return EXIT_SUCCESS;
+
+    return 0;
 }

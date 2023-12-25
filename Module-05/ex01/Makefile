@@ -5,12 +5,12 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = rm -rf
 
-SRCS = main.cpp Bureaucrat.cpp
+SRCS = main.cpp Bureaucrat.cpp Form.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
-%.o: %.cpp Bureaucrat.hpp
+%.o: %.cpp Bureaucrat.hpp Form.hpp
 	${CC} ${CFLAGS} -c $< -o $@
 
 $(NAME): $(OBJS)

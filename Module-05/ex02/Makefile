@@ -1,16 +1,16 @@
-NAME = Animal
+NAME = Bureaucrat
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = rm -rf
 
-SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
+SRCS = main.cpp Bureaucrat.cpp Form.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
-%.o: %.cpp Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp
+%.o: %.cpp Bureaucrat.hpp Form.hpp
 	${CC} ${CFLAGS} -c $< -o $@
 
 $(NAME): $(OBJS)

@@ -2,7 +2,8 @@
 
 int main( void )
 {
-    try {
+    try
+    {
         Bureaucrat bureaucrat("high", 3);
         std::cout << bureaucrat << std::endl;
 
@@ -16,7 +17,8 @@ int main( void )
         std::cout << e.what() << std::endl;
     }
 
-    try {
+    try
+    {
         Bureaucrat bureaucrat("low", 150);
         std::cout << bureaucrat << std::endl;
 
