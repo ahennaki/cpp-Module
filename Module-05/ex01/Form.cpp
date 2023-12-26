@@ -1,5 +1,15 @@
 #include "Form.hpp"
 
+const char *Form::GradeTooHighException::what() const throw() 
+{
+    return "Grade is too high!";
+}
+
+const char *Form::GradeTooLowException::what() const throw() 
+{
+    return "Grade is too low!";
+}
+
 Form::Form() : name("") , signedIn(0) , gradeSgn(1) , gradeEx(1) {}
 
 Form::Form(std::string name, int gradeSgn, int gradeEx) : name(name) , signedIn(0) , gradeSgn(gradeSgn) , gradeEx(gradeEx)

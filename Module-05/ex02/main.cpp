@@ -1,16 +1,30 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main( void )
 {
     try
     {
-        Bureaucrat brc("brc",1);
-        Form form("form", 10, 10);
+        Bureaucrat brc("brc", 2);
+        ShrubberyCreationForm form1("scf");
+        RobotomyRequestForm form2("rrf");
+        PresidentialPardonForm form3("ppf");
 
-        brc.signForm(form);
-
-        std::cout << form << std::endl;
+        std::cout << "--------------- (Shrubbery) ---------------" << std::endl;
+        brc.signForm(form1);
+        brc.executeForm(form1);
+        std::cout << "--------------- (Robotomy) ---------------" << std::endl;
+        brc.signForm(form2);
+        brc.executeForm(form2);
+        brc.executeForm(form2);
+        brc.executeForm(form2);
+        brc.executeForm(form2);
+        std::cout << "--------------- (President) ---------------" << std::endl;
+        brc.signForm(form3);
+        brc.executeForm(form3);
     }
     catch (std::exception &e)
     {
