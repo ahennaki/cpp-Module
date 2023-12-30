@@ -4,6 +4,16 @@
 #include <string>
 #include <iostream>
 
+enum e_type
+{
+    NONE,
+    INT,
+    CHAR,
+    FLOAT,
+    DOUBLE,
+    LITERALS
+};
+
 class ScalarConverter
 {
     private:
