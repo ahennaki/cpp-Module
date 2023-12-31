@@ -2,16 +2,22 @@
 
 int main(int ac, char **av)
 {
-    if (ac != 2)
+    try
     {
-        std::cout << "Error" << std::endl;
-        return 0;
+        /* code */
+        if (ac != 2)
+        {
+            std::cout << "Error" << std::endl;
+            return 1;
+        }
+        std::string input(av[1]);
+        ScalarConverter::convert(input);
     }
-    // if (!invalideInput(av[1]))
-    //     std::cout << "invalid input!!" << std::endl;
-    // else
-    //     std::cout << "all clear." << std::endl;
-    ScalarConverter::convert(av[1]);
-
+    catch(...)
+    {
+        std::cerr << "Error: exception" << std::endl;
+    }
+    
+    // std::cout << static_cast<double>(av[1][0]) << std::endl;
     return 0;
 }

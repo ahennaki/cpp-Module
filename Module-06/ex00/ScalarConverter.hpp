@@ -3,14 +3,16 @@
 
 #include <string>
 #include <iostream>
+#include <iomanip>
+#include <sstream>
 
 enum e_type
 {
     NONE,
     INT,
     CHAR,
-    FLOAT,
     DOUBLE,
+    FLOAT,
     LITERALS
 };
 
@@ -20,7 +22,7 @@ class ScalarConverter
         ScalarConverter();
         ~ScalarConverter();
     public:
-        static void convert(const std::string& input);
+        static void convert(std::string& input);
 };
 
 #endif
