@@ -13,14 +13,14 @@ Base*   generate(void)
     rd = std::rand() % 3;
     switch (rd)
     {
-    case 0:
-        return (new A());
-    case 1:
-        return (new B());
-    case 2:
-        return (new C());
-    default:
-        return (NULL);
+        case 0:
+            return (new A());
+        case 1:
+            return (new B());
+        case 2:
+            return (new C());
+        default:
+            return (NULL);
     }
 }
 

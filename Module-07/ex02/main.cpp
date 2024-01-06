@@ -1,5 +1,5 @@
 #include <iostream>
-#include <Array.hpp>
+#include "Array.hpp"
 
 #define MAX_VAL 750
 int main(int, char**)
@@ -21,6 +21,7 @@ int main(int, char**)
 
     for (int i = 0; i < MAX_VAL; i++)
     {
+        std::cout << numbers[i] << std::endl;
         if (mirror[i] != numbers[i])
         {
             std::cerr << "didn't save the same value!!" << std::endl;

@@ -2,7 +2,7 @@
 
 Serializer::Serializer() {}
 
-Serializer::~Serializer(){}
+Serializer::~Serializer() {}
 
 uintptr_t Serializer::serialize(t_data* ptr)
 {
