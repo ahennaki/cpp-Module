@@ -1,9 +1,12 @@
 #include <iostream>
 #include "Array.hpp"
 
+void f(){system("leaks array");}
+
 #define MAX_VAL 750
 int main(int, char**)
 {
+    atexit(f);
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
     srand(time(NULL));
@@ -17,6 +20,7 @@ int main(int, char**)
     {
         Array<int> tmp = numbers;
         Array<int> test(tmp);
+        // std::cout << "test[0]= " << test[0] << std::endl;
     }
 
     for (int i = 0; i < MAX_VAL; i++)
@@ -31,6 +35,7 @@ int main(int, char**)
     try
     {
         numbers[-2] = 0;
+        // std::cout << "numbers[0]= " << numbers[0] << std::endl;
     }
     catch(const std::exception& e)
     {
@@ -39,6 +44,7 @@ int main(int, char**)
     try
     {
         numbers[MAX_VAL] = 0;
+        // std::cout << "numbers[MAX_VAL - 1]= " << numbers[MAX_VAL - 1] << std::endl;
     }
     catch(const std::exception& e)
     {

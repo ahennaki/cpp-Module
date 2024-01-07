@@ -41,7 +41,8 @@ class Array
             return array[i];
         }
 
-        unsigned int  size() const { return _size; }
+        unsigned int  size() const {return _size;}
 };
 
 #endif
+

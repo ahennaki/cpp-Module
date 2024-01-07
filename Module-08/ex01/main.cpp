@@ -11,8 +11,8 @@ int main()
         sp.addNumber(9);
         sp.addNumber(11);
         // sp.addNumber(11);
-        std::cout << "Longest span: " << sp.shortestSpan() << std::endl;
-        std::cout << "Shortest span: " << sp.longestSpan() << std::endl;
+        std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+        std::cout << "Longest span: " << sp.longestSpan() << std::endl;
     }
     catch(const std::exception& e)
     {
@@ -21,7 +21,7 @@ int main()
 
     try
     {
-        std::vector<int>    vec(100000);
+        std::vector<int>    vec(1000000);
         std::srand(time(NULL));
         std::generate(vec.begin(), vec.end(), std::rand);
 
@@ -29,8 +29,8 @@ int main()
 
         sp.fillSpan(vec.begin(), vec.end());
 
-        std::cout << "Longest span: " << sp.longestSpan() << std::endl;
         std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+        std::cout << "Longest span: " << sp.longestSpan() << std::endl;
         
     }
     catch (std::exception& e)
