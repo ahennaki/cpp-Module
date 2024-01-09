@@ -7,27 +7,22 @@
 #include <stack>
 #include <deque>
 
-template< typename T, typename Container = std::deque< T > > 
-class MutantStack : public std::stack< T, Container >
+template <typename T, typename Container = std::deque<T>> 
+class MutantStack : public std::stack<T, Container>
 {
+    public:
+        MutantStack() {};
+        ~MutantStack() {};
+        MutantStack(const MutantStack& obj) {*this = obj;}
+        MutantStack& operator=(const MutantStack& obj) {
+            std::stack<T, Container>::operator=(obj);
+            return *this;
+        }
 
-private:
+        typedef typename Container::iterator iterator;
 
-public:
-
-    MutantStack( void ) {};
-    ~MutantStack( void ) {};
-
-    MutantStack( const MutantStack& rhs ) { *this = rhs; }
-    MutantStack&    operator=( const MutantStack& rhs ) {
-        std::stack< T, Container >::operator=( rhs );
-        return *this;
-    }
-
-    typedef typename Container::iterator    iterator;
-
-    iterator    begin() { return this->c.begin(); }
-    iterator    end() { return this->c.end(); }
+        iterator begin() {return this->c.begin();}
+        iterator end() {return this->c.end();}
 };
 
 #endif
