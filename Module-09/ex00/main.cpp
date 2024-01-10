@@ -1,4 +1,5 @@
 #include "BitcoinExchange.hpp"
+#include <string>
 
 int main(int ac, char** av)
 {
@@ -7,10 +8,8 @@ int main(int ac, char** av)
         std::cerr << "Usage: \"./btc input.txt\"" << std::endl;
         return EXIT_FAILURE;
     }
-    static_cast<void>(av);
-    std::string filename("2009-01-14");
-    // BitcoinExchange exchange;
-    // std::cout << exchange.data["2009-01-14"] << std::endl;
-    validDate(filename);
+    std::string filename(av[1]);
+    BitcoinExchange exchange;
+    exchange.btcExchange(filename);
     return EXIT_SUCCESS;
 }

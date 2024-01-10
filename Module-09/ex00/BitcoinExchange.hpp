@@ -9,11 +9,13 @@
 
 class BitcoinExchange
 {
-    // private:
+    private:
+        std::map<std::string, double> data;
 
     public:
-        std::map<std::string, double> data;
         BitcoinExchange();
+        BitcoinExchange(const BitcoinExchange& obj);
+        BitcoinExchange& operator=(const BitcoinExchange& obj);
         ~BitcoinExchange();
         void btcExchange(const std::string &filename);
 
@@ -23,5 +25,7 @@ int     toInt(std::string& input);
 double  toDouble(std::string& input);
 bool    isNumber(std::string& input);
 bool    validDate(std::string& date);
+bool    validNumber(std::string &value);
+std::string previousDate(std::string& date);
 
 #endif
