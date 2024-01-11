@@ -15,6 +15,10 @@ class RPN
         RPN(const RPN& obj);
         RPN& operator=(const RPN& obj);
         ~RPN();
+
+        bool operation(char c);
+
+        long long rpnOperation(std::string str);
 };
 
 #endif
