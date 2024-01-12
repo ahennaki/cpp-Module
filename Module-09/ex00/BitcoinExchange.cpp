@@ -1,8 +1,10 @@
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange()
+BitcoinExchange::BitcoinExchange() {}
+
+BitcoinExchange::BitcoinExchange(std::string& dataFile)
 {
-    std::ifstream file("data.csv");
+    std::ifstream file(dataFile);
     std::string line;
     std::string date;
     std::string value;
@@ -45,9 +47,9 @@ std::string ft_strtrim(const std::string& str)
     return str.substr(first, (last - first + 1));
 }
 
-void BitcoinExchange::btcExchange(const std::string &filename)
+void BitcoinExchange::btcExchange(const std::string &fileName)
 {
-    std::ifstream file(filename);
+    std::ifstream file(fileName);
     std::string line;
     std::string date;
     std::string value;
@@ -226,11 +228,19 @@ double toDouble(std::string& input)
 
 std::string toString(int value)
 {
-    std::stringstream ss;
+    try
+    {
+        std::stringstream ss;
 
-    ss << value;
+        ss << value;
 
-    return ss.str();
+        return ss.str();
+    }
+    catch(std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+    return 0;
 }
 
 std::string previousDate(std::string& date)
@@ -243,7 +253,7 @@ std::string previousDate(std::string& date)
     int month = toInt(smonth);
     int day = toInt(sday);
 
-    int daysInMonth[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    int daysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
     if (leapYear(year))
         daysInMonth[2] = 29;
@@ -255,7 +265,7 @@ std::string previousDate(std::string& date)
             month = 12;
             year--;
         }
-        day = daysInMonth[month];
+        day = daysInMonth[month - 1];
     }
 
     syear = toString(year);

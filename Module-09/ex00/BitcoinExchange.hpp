@@ -11,9 +11,11 @@ class BitcoinExchange
 {
     private:
         std::map<std::string, double> data;
+        std::string dataFile;
 
     public:
         BitcoinExchange();
+        BitcoinExchange(std::string& dataFile);
         BitcoinExchange(const BitcoinExchange& obj);
         BitcoinExchange& operator=(const BitcoinExchange& obj);
         ~BitcoinExchange();

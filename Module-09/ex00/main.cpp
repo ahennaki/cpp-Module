@@ -8,8 +8,10 @@ int main(int ac, char** av)
         std::cerr << "Usage: \"./btc input.txt\"" << std::endl;
         return EXIT_FAILURE;
     }
-    std::string filename(av[1]);
-    BitcoinExchange exchange;
-    exchange.btcExchange(filename);
+    std::string fileName(av[1]);
+    std::string dataFile("data.csv");
+
+    BitcoinExchange exchange(dataFile);
+    exchange.btcExchange(fileName);
     return EXIT_SUCCESS;
 }

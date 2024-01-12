@@ -18,7 +18,7 @@ class RPN
 
         bool operation(char c);
 
-        long long rpnOperation(std::string str);
+        long long rpnOperation(std::string& str);
 };
 
 #endif

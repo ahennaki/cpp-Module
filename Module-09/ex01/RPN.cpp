@@ -15,22 +15,17 @@ RPN& RPN::operator=(const RPN& obj)
 
 RPN::~RPN() {}
 
-bool check(std::string str)
-{
-    return (str.find_first_not_of("0123456789+-/* ") == std::string::npos);
-}
-
 bool isOperator(char c)
 {
     return (c == '+' || c == '-' || c == '*' || c == '/');
 }
 
-bool validInput(std::string str)
+bool validInput(std::string& str)
 {
     int digit = 0;
     int oper = 0;
 
-    if (!check(str))
+    if (str.find_first_not_of("0123456789+-/* ") != std::string::npos)
         return false;
     for(size_t i = 0; i < str.length(); i++)
     {
@@ -70,7 +65,7 @@ bool RPN::operation(char c)
     return true;
 }
 
-long long RPN::rpnOperation(std::string str)
+long long RPN::rpnOperation(std::string& str)
 {
     if (!validInput(str))
     {
