@@ -75,13 +75,13 @@ void BitcoinExchange::btcExchange(const std::string &fileName)
         i = line.find('|');
 
         if (i == std::string::npos) {
-            std::cout << "Error: bad input => " << line << std::endl;
+            std::cerr << "Error: bad input => " << line << std::endl;
             continue ;
         }
 
         date = ft_strtrim(line.substr(0, i));
         if (!validDate(date)) {
-            std::cout << "Error: invalid date: '" << date << "'" << std::endl;
+            std::cerr << "Error: invalid date: '" << date << "'" << std::endl;
             continue ; 
         }
 
@@ -161,22 +161,27 @@ bool checkValid(std::string& str, char c) {
 bool validNumber(std::string &value)
 {
     if (value.empty() || value.find_first_not_of("+-0123456789.") != std::string::npos) {
-        std::cout << "Error: not a number." << std::endl;
+        std::cerr << "Error: not a number." << std::endl;
+        return false;
+    }
+
+    if ((value.length() == 1 && !isNumber(value)) || value.front() == '.'){
+        std::cerr << "Error: not a number." << std::endl;
         return false;
     }
 
     if (countOcc(value, '.') > 1 || checkValid(value, '+') || checkValid(value, '-')) {
-        std::cout << "Error: not a number." << std::endl;
+        std::cerr << "Error: not a number." << std::endl;
         return false;
     }
 
     if (toDouble(value) < 0){
-        std::cout << "Error: not a positive number." << std::endl;
+        std::cerr << "Error: not a positive number." << std::endl;
         return false;
     }
 
     if (toDouble(value) > 1000){
-        std::cout << "Error: too large a number." << std::endl;
+        std::cerr << "Error: too large a number." << std::endl;
         return false;
     }
 
@@ -185,9 +190,7 @@ bool validNumber(std::string &value)
 
 bool isNumber(std::string &input)
 {
-    if (input.find_first_not_of("0123456789") != std::string::npos)
-        return false;
-    return true;
+    return (input.find_first_not_of("0123456789") == std::string::npos);
 }
 
 int toInt(std::string& input)
@@ -230,11 +233,11 @@ std::string toString(int value)
 {
     try
     {
-        std::stringstream ss;
+        std::stringstream str;
 
-        ss << value;
+        str << value;
 
-        return ss.str();
+        return str.str();
     }
     catch(std::exception& e)
     {
@@ -255,8 +258,7 @@ std::string previousDate(std::string& date)
 
     int daysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-    if (leapYear(year))
-        daysInMonth[2] = 29;
+    daysInMonth[1] = leapYear(year);
 
     day--;
     if (day == 0) {
