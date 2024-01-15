@@ -1,5 +1,4 @@
 #include "RPN.hpp"
-#include <cstdlib>
 
 int main(int ac, char **av)
 {    
