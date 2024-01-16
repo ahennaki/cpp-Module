@@ -154,7 +154,7 @@ int countOcc(std::string& str, char c) {
     return count;
 }
 
-bool checkValid(std::string& str, char c) {
+bool checkSign(std::string& str, char c) {
     return (countOcc(str, c) > 1 || (countOcc(str, c) == 1 && str.front() != c));
 }
 
@@ -170,7 +170,7 @@ bool validNumber(std::string &value)
         return false;
     }
 
-    if (countOcc(value, '.') > 1 || checkValid(value, '+') || checkValid(value, '-')) {
+    if (countOcc(value, '.') > 1 || checkSign(value, '+') || checkSign(value, '-')) {
         std::cerr << "Error: not a number." << std::endl;
         return false;
     }
