@@ -1,6 +1,4 @@
 #include "RPN.hpp"
-#include <cstddef>
-#include <cstdlib>
 
 RPN::RPN() {}
 
@@ -29,6 +27,8 @@ bool validInput(std::string& str)
         return false;
     for(size_t i = 0; i < str.length(); i++)
     {
+        if (i != str.length() - 1 && str[i] != ' ' && str[i + 1] != ' ')
+            return false;
         if (isdigit(str[i]))
             digit ++;
         else if (isOperator(str[i]))

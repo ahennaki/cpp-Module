@@ -1,11 +1,10 @@
 #include "BitcoinExchange.hpp"
-#include <string>
 
 int main(int ac, char** av)
 {
     if (ac != 2)
     {
-        std::cerr << "Usage: \"./btc input.txt\"" << std::endl;
+        std::cerr << "Usage: \"./btc <input_file>\"" << std::endl;
         return EXIT_FAILURE;
     }
     std::string fileName(av[1]);

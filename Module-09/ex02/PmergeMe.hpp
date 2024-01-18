@@ -13,17 +13,20 @@ class PmergeMe
 {
     private:
         Container data;
+        int stglr;
     public:
         PmergeMe();
-        PmergeMe(Container& data);
+        PmergeMe(char **av);
         PmergeMe(const PmergeMe& obj);
         PmergeMe& operator=(const PmergeMe& obj);
         ~PmergeMe();
 
-        Container& checkArgs(int ac, char **av);
+        size_t getSize() const;
+        void printData() const;
+        int binarySearch(int target);
         void sort();
 };
 
-
+void printTime(double time, size_t size, std::string str);
 
 #endif

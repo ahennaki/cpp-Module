@@ -16,7 +16,6 @@ BitcoinExchange::BitcoinExchange(std::string& dataFile)
         exit(EXIT_FAILURE);
     }
 
-    std::getline(file, line);
     while (std::getline(file, line))
     {
         i = line.find(',');
@@ -132,10 +131,25 @@ bool validDate(std::string &date)
     int m = toInt(month);
     int d = toInt(day);
 
-    if (y < 2009 || y > 2022 || m > 12 || m < 1 || d > 31 || d < 1)
+    std::time_t now = std::time(nullptr);
+    std::tm* crtDate = std::localtime(&now);
+
+    std::tm inDate = *crtDate;
+    inDate.tm_year = y - 1900;
+    inDate.tm_mon = m - 1;
+    inDate.tm_mday = d;
+
+    if (std::mktime(&inDate) > std::mktime(crtDate))
         return false;
 
+    if (y < 2009 || m > 12 || m < 1 || d > 31 || d < 1)
+        return false;
+
+
     if ((m == 4 || m == 6 || m == 9 || m == 11) && d == 31)
+        return false;
+
+    if (y == 2009 && m == 1 && d == 1)
         return false;
 
     if (m == 2)
